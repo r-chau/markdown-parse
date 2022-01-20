@@ -10,15 +10,20 @@ public class MarkdownParse {
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         int currentIndex = 0;
-        System.out.println(currentIndex);
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex = closeParen + 1;
-            System.out.println(currentIndex);
+            if (closeParen > -1) {
+                toReturn.add(markdown.substring(openParen + 1, closeParen));            
+                currentIndex = closeParen + 1;
+            }
+            else {
+                toReturn.add(markdown.substring(openParen + 1));
+                currentIndex = openParen + markdown.substring(openParen + 1, markdown.indexOf("\n", openParen)).length();
+            }
+            
         }
         return toReturn;
     }
