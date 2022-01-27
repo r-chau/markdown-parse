@@ -20,8 +20,10 @@ public class MarkdownParse {
                 currentIndex = closeParen + 1;
             }
             else {
-                toReturn.add(markdown.substring(openParen + 1));
-                currentIndex = openParen + markdown.substring(openParen + 1, markdown.indexOf("\n", openParen)).length();
+                currentIndex = markdown.indexOf("\n", openParen) + 1;
+                if (currentIndex == 0) {
+                break;
+                }
             }
             
         }
