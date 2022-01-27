@@ -22,7 +22,7 @@ public class MarkdownParse {
             else {
                 currentIndex = markdown.indexOf("\n", openParen) + 1;
                 if (currentIndex == 0) {
-                break;
+                    break;
                 }
             }
             
