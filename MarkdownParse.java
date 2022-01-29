@@ -31,7 +31,7 @@ public class MarkdownParse {
                 }   
             } 
         }
-        return toReturn;
+        return toReturn; 
     }
     public static void main(String[] args) throws IOException {
 		Path fileName = Path.of(args[0]);
@@ -40,3 +40,6 @@ public class MarkdownParse {
         System.out.println(links);
     }
 }
+
+//javac -cp " .;lib/junit-4.13.2.jar;lib\hamcrest-core-1.3.jar"  MarkdownParseTest.java
+//java -cp ".;lib/junit-4.13.2.jar;lib\hamcrest-core-1.3.jar" org.junit.runner.JUnitCore MarkdownParseTest
