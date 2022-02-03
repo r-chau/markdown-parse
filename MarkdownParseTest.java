@@ -22,7 +22,7 @@ public class MarkdownParseTest {
 
         
         String contents1= Files.readString(Path.of("./newBreakingTest.md"));
-        List<String> expect1 = List.of("");
+        List<String> expect1 = List.of("Some link");
         assertEquals(MarkdownParse.getLinks(contents1), expect1);
     
 
